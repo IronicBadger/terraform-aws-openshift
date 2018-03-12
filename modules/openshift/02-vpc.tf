@@ -5,7 +5,7 @@ resource "aws_vpc" "ocp-${var.cluster_name}" {
 
   tags {
     Name    = "ocp ${var.cluster_name} VPC"
-    Project = "ocp-${var.cluster_name}"
+    Cluster = "ocp-${var.cluster_name}"
   }
 }
 
@@ -15,7 +15,7 @@ resource "aws_internet_gateway" "ocp-${var.cluster_name}" {
 
   tags {
     Name    = "ocp ${var.cluster_name} IGW"
-    Project = "ocp-${var.cluster_name}"
+    Cluster = "ocp-${var.cluster_name}"
   }
 }
 
@@ -29,7 +29,7 @@ resource "aws_subnet" "public-subnet-${var.cluster_name}" {
 
   tags {
     Name    = "OCP ${var.cluster_name} Public Subnet"
-    Project = "ocp"
+    Cluster = "ocp"
   }
 }
 
@@ -44,7 +44,7 @@ resource "aws_route_table" "public-${var.cluster_name}" {
 
   tags {
     Name    = "OCP ${var.cluster_name} Public Route Table"
-    Project = "ocp"
+    Cluster = "ocp"
   }
 }
 
