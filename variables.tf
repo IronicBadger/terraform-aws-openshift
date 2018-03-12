@@ -28,9 +28,50 @@ variable "subnetaz" {
     eu-central-1   = "eu-central-1a"
     ap-southeast-1 = "ap-southeast-1a"
   }
+}
 
-  // A unique identifier used to populate DNS, node names, etc.
-  variable "cluster_name" {
-    description = "A unique identifier for this cluster."
-  }
+// A unique identifier used to populate DNS, node names, etc.
+variable "cluster_name" {
+  description = "A unique identifier for this cluster."
+}
+
+// Set the numbers of nodes required of each type below.
+variable "master_count" {
+  type        = "string"
+  default     = "3"
+  description = "Number of masters"
+}
+
+variable "worker_count" {
+  type        = "string"
+  default     = "2"
+  description = "Number of app / worker nodes"
+}
+
+variable "infra_count" {
+  type        = "string"
+  default     = "2"
+  description = "Number of infra nodes"
+}
+
+// The domain name for the cluster
+variable "domain_name" {
+  type        = "string"
+  description = "Domain (e.g. domain.example.com)"
+}
+
+// Set node sizes below
+variable "size_master" {
+  description = "t2.large is min recommended value"
+  default     = "t2.micro"
+}
+
+variable "size_worker" {
+  description = "t2.large is min recommended value"
+  default     = "t2.micro"
+}
+
+variable "size_infra" {
+  description = "t2.large is min recommended value"
+  default     = "t2.micro"
 }
