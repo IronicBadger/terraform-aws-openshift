@@ -5,7 +5,6 @@ variable "region" {
 
 variable "instance_size" {
   description = "The size of the cluster nodes, e.g: t2.large. Note that OpenShift will not run on anything smaller than t2.large, officially."
-  default     = "t2.micro"
 }
 
 variable "vpc_cidr" {
