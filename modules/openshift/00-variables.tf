@@ -1,9 +1,11 @@
 variable "region" {
   description = "The region to deploy the cluster in, e.g: us-east-1."
+  default     = "eu-west-1"
 }
 
-variable "amisize" {
-  description = "The size of the cluster nodes, e.g: t2.large. Note that OpenShift will not run on anything smaller than t2.large"
+variable "instance_size" {
+  description = "The size of the cluster nodes, e.g: t2.large. Note that OpenShift will not run on anything smaller than t2.large, officially."
+  default     = "t2.micro"
 }
 
 variable "vpc_cidr" {
@@ -12,7 +14,7 @@ variable "vpc_cidr" {
 
 variable "subnetaz" {
   description = "The AZ for the public subnet, e.g: us-east-1a"
-  type = "map"
+  type        = "map"
 }
 
 variable "subnet_cidr" {
