@@ -21,15 +21,15 @@ resource "aws_internet_gateway" "ocp-${var.cluster_name}" {
 
 //  Create a public subnet.
 resource "aws_subnet" "public-subnet-${var.cluster_name}" {
-  vpc_id                  = "${aws_vpc.ocp.id}"
+  vpc_id                  = "${aws_vpc.ocp-${var.cluster_name}.id}"
   cidr_block              = "${var.subnet_cidr}"
   availability_zone       = "${lookup(var.subnetaz, var.region)}"
   map_public_ip_on_launch = true
-  depends_on              = ["aws_internet_gateway.ocp"]
+  depends_on              = ["aws_internet_gateway.ocp-${var.cluster_name}"]
 
   tags {
     Name    = "OCP ${var.cluster_name} Public Subnet"
-    Cluster = "ocp"
+    Cluster = "ocp-${var.cluster_name}"
   }
 }
 
